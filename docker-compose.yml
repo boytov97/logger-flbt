@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  fluetbit:
+    build: ./fluentbit
+    container_name: fluentbit
+    ports:
+      - 5170:5170
+
+  clickhouse:
+    build: ./clickhouse
+    container_name: clickhouse
+    ports:
+      - 8123:8123
+      - 9000:9000

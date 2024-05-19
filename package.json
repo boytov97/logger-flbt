@@ -1,0 +1,26 @@
+{
+    "name": "@logger/logger",
+    "description": "Logger",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo",
+        "start:dev": "npx nodemon"
+    },
+    "keywords": [],
+    "author": "Boyutov Turarbek",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.10.0",
+        "nodemon": "^3.0.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.3.2"
+    },
+    "dependencies": {
+        "@hinted-public/winston-tcp": "^1.0.0",
+        "@sentry/node": "^7.17.0",
+        "logform": "^2.5.1",
+        "winston": "^3.9.0",
+        "winston-transport-sentry-node": "2.7.0",
+        "reflect-metadata": "^0.2.1"
+    }
+}
