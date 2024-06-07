@@ -1,0 +1,3 @@
+DROP TABLE database_logs.servicesLongTermLogs;
+
+DROP TABLE database_logs.servicesLongTermLogsWithPrimaryKey;

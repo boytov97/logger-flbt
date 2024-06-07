@@ -6,6 +6,9 @@ services:
     container_name: fluentbit
     ports:
       - 5170:5170
+    environment:
+      CLICKHOUSE_DB_NAME: database_logs
+      CLICKHOUSE_TABLE: servicesLongTermLogsWithPrimaryKeyBuffer
 
   clickhouse:
     build: ./clickhouse
@@ -13,3 +16,32 @@ services:
     ports:
       - 8123:8123
       - 9000:9000
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - clickhouse-init:/docker-entrypoint-initdb.d/
+      - clickhouse-logs:/var/log/clickhouse-server
+
+  # localydb:
+  #   build: ./ydb
+  #   container_name: localydb
+  #   ports:
+  #     - 2135:2135
+  #     - 2136:2136
+  #     - 8765:8765
+  #     - 5432:5432
+  #   environment:
+  #     GRPC_TLS_PORT: 2135
+  #     GRPC_PORT: 2136
+  #     MON_PORT: 8765
+  #     YDB_USE_IN_MEMORY_PDISKS: 1
+  #   volumes:
+  #     - ydb_certs:/ydb_certs
+  #     - ydb_data:/ydb_data
+
+volumes:
+  clickhouse-data:
+  clickhouse-init:
+  clickhouse-logs:
+
+  # ydb_certs:
+  # ydb_data:
